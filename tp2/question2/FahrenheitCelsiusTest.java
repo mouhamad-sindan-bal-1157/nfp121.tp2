@@ -74,16 +74,5 @@ public class FahrenheitCelsiusTest extends junit.framework.TestCase {
 	}
 	
 
-    public void testTesterInputNulle()
-    {
-        question1.FahrenheitCelsius.main(new String[]{"","",""});
-    }
-
-    public void testValeurNegativeEtZeroAbsolue()
-    {
-       assertEquals("-500 °F -> -295.5 °C ? ", -295.5, question1.FahrenheitCelsius.fahrenheitEnCelsius(-500), 0.1);
-       assertEquals("-32 °F -> -35.5 °C ? ", -35.5, question1.FahrenheitCelsius.fahrenheitEnCelsius(-32), 0.1);
-       assertEquals("-2 °F -> -18.8 °C ? ", -18.8, question1.FahrenheitCelsius.fahrenheitEnCelsius(-2), 0.1);
-       question1.FahrenheitCelsius.main(new String[]{"-500","-32","-2" });
-    }
+    
 }

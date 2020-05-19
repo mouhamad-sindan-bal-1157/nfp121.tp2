@@ -31,35 +31,25 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
    * @param ae l'événement transmis
    */
   public void actionPerformed( ActionEvent ae ){
-          String val=entree.getText();
-
-      if(TryParseInt(val))
-      {
-          float res=FahrenheitCelsius.fahrenheitEnCelsius(Integer.parseInt(val));
-          if(res<-273.1)
-            res=-273.1F;
-          sortie.setText(String.valueOf(res));
-      }
-      else
-          sortie.setText("Error in input!");
+    try{
+        
+      int fah = 0;
+      float cel = 0F; 
+      
+      fah = Integer.parseInt(entree.getText());
+      cel = FahrenheitCelsius.fahrenheitEnCelsius(fah);
+      
+      if(cel < -273.1F) 
+      cel = -273.1F;
+      sortie.setText(Float.toString(cel));
+    } 
+        catch(NumberFormatException e){
+            sortie.setText("error");
+    }
   }
   
   
   public static void main(String[] args){
       new IHMFahrenheit();
-    }
-    /**
-     * Une methode qui essaye de convertir un string en un entier sans se
-     * soucier des parse invalid et des input erronnes
-     * params value : la valeur a convertir
-     * return boolean : return si la conversion a etait faite
-     */
-   private static boolean TryParseInt(String value) {  
-     try {  
-         Integer.parseInt(value);  
-         return true;  
-      } catch (NumberFormatException e) {  
-         return false;  
-      }  
     }
 }
